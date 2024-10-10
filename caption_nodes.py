@@ -18,7 +18,7 @@ class PhiModelLoder:
         return {
             "required": {
                 'model_id': ('STRING', {'default': 'microsoft/Phi-3.5-vision-instruct'})
-                , 'attn_implementation': (['flash_attention_2', 'eager'], {'default': 'flash_attention_2'})
+                , 'attn_implementation': (['flash_attention_2', 'eager'], {'default': 'eager'})
                 , 'torch_dtype':(['auto', 'float16', 'bfloat16'], {'default':'auto'})
                 , 'trust_remote_code': ('BOOLEAN', {'default': True, })
             },
@@ -153,7 +153,7 @@ class PhiInfer:
 
     def CoreInfer(self, model, model_info, num_crops, tensor_list, content, max_new_tokens, temperature, do_sample,
                   skip_special_tokens, clean_up_tokenization_spaces):
-        processor = AutoProcessor.from_pretrained(model_info['model_id'], trust_remote_code=True, num_crops=num_crops)
+        processor = AutoProcessor.from_pretrained(model_info, trust_remote_code=True, num_crops=num_crops)
         image_list = [tensor2pil(t) for t in tensor_list]
 
         messages = [
