@@ -1,0 +1,15 @@
+[project]
+name = "comfyui_phicaption"
+description = "In addition to achieving conventional single-image, single-round reverse engineering, it can also achieve single-image multi-round and multi-image single-round reverse engineering. Moreover, the Phi model has a better understanding of prompts."
+version = "1.0.0"
+license = {file = "LICENSE"}
+dependencies = ["huggingface_hub", "torch==2.3.0", "numpy==1.24.4", "Pillow==10.3.0", "Requests==2.31.0", "torchvision==0.18.0", "transformers==4.43.0", "accelerate==0.30.0", "flash_attn==2.5.8"]
+
+[project.urls]
+Repository = "https://github.com/l1yongch1/ComfyUI_PhiCaption"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI_PhiCaption"
+Icon = ""
